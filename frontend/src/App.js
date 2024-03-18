@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import AdminAnalyticsPage from "./admin/AdminAnalyticsPage";
 import AdminChatsPage from "./admin/AdminChatsPage";
 import AdminCreateProductPage from "./admin/AdminCreateProductPage";
@@ -18,11 +19,15 @@ import UserProfilePage from "./pages/user/UserProfilePage";
 import UserCartDetailsPage from "./pages/user/UserCartDetailsPage";
 import UserOrdersPage from "./pages/user/UserOrdersPage";
 import UserOrdertDetailsPage from "./pages/user/UserOrderDetailsPage";
+
 import ProtectedRouteComponent from "./components/ProtectedRouteComponent";
+import FooterComponent from "./components/FooterComponent";
+import HeaderComponent from "./components/HeaderComponent";
 
 function App() {
   return (
     <BrowserRouter>
+      <HeaderComponent />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
@@ -65,6 +70,7 @@ function App() {
           <Route path="/admin/user" element={<AdminUserPage />} />
         </Route>
       </Routes>
+      <FooterComponent />
     </BrowserRouter>
   );
 }
