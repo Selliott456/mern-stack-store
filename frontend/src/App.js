@@ -31,7 +31,9 @@ function App() {
         <Route path="/products" element={<ProductListPage />} />
         <Route path="/product-details/:id" element={<ProductDetailsPage />} />
         <Route path="*" element="404 - Error Page doesnt exist" />
-        <Route element={<ProtectedRouteComponent />}>
+
+        {/* user protected routes */}
+        <Route element={<ProtectedRouteComponent admin={false} />}>
           <Route
             path="user/order-details/"
             element={<UserOrdertDetailsPage />}
@@ -41,21 +43,27 @@ function App() {
           <Route path="/user" element={<UserProfilePage />} />
         </Route>
 
-        <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
-        <Route path="/admin/chats" element={<AdminChatsPage />} />
-        <Route
-          path="/admin/create-product"
-          element={<AdminCreateProductPage />}
-        />
-        <Route path="/admin/edit-product" element={<AdminEditProductPage />} />
-        <Route path="/admin/edit-user" element={<AdminEditUserPage />} />
-        <Route
-          path="/admin/order-details"
-          element={<AdminOrderDetailsPage />}
-        />
-        <Route path="/admin/orders" element={<AdminOrdersPage />} />
-        <Route path="/admin/products" element={<AdminProductsPage />} />
-        <Route path="/admin/user" element={<AdminUserPage />} />
+        {/* Admin protected routes */}
+        <Route element={<ProtectedRouteComponent admin={true} />}>
+          <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
+          <Route path="/admin/chats" element={<AdminChatsPage />} />
+          <Route
+            path="/admin/create-product"
+            element={<AdminCreateProductPage />}
+          />
+          <Route
+            path="/admin/edit-product"
+            element={<AdminEditProductPage />}
+          />
+          <Route path="/admin/edit-user" element={<AdminEditUserPage />} />
+          <Route
+            path="/admin/order-details"
+            element={<AdminOrderDetailsPage />}
+          />
+          <Route path="/admin/orders" element={<AdminOrdersPage />} />
+          <Route path="/admin/products" element={<AdminProductsPage />} />
+          <Route path="/admin/user" element={<AdminUserPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
