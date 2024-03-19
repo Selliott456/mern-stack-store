@@ -1,5 +1,17 @@
+import { Container, Row, Col } from "react-bootstrap";
+
 const FooterComponent = () => {
-  return <h3>Footer</h3>;
+  return (
+    <footer>
+      <Container fluid>
+        <Row className="mt-5">
+          <Col className="bg-dark text-white text-center py-5">
+            Copyright &copy; shop
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
 };
 
 export default FooterComponent;
