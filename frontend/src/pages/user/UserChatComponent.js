@@ -1,4 +1,4 @@
-UserChatComponent = () => {
+const UserChatComponent = () => {
   return <p>chat</p>;
 };
 
